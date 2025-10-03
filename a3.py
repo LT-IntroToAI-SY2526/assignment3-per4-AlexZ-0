@@ -54,12 +54,30 @@ def title_by_year(matches: List[str]) -> List[str]:
     Returns:
         a list of movie titles made in the passed in year
     """
+    
+    year = int(matches[0])
+    result = []
+    for movie in movie_db:
+        if get_year(movie) == year:
+            result.append(get_title(movie))
+            print(result)
+    return result
+
     pass
 
-
 def title_by_year_range(matches: List[str]) -> List[str]:
-    """Finds all movies made in the passed in year range
+    result = []
+    s_year = int(matches[0])
+    e_year =int(matches[1])
+    for movie in movie_db:
+        movie_year = get_year(movie)
+        if s_year <= get_year(movie) <= e_year:
+            result.append(get_title(movie))
+    return result
+    
 
+    """Finds all movies made in the passed in year range
+    
     Args:
         matches - a list of 2 strings, the year beginning the range and the year ending
             the range. For example, to get movies from 1991-1994 matches would look like
@@ -74,6 +92,12 @@ def title_by_year_range(matches: List[str]) -> List[str]:
 
 
 def title_before_year(matches: List[str]) -> List[str]:
+    result = []
+    e_year = int(matches[0])
+    for movie in movie_db:
+        if get_year(movie) <= e_year:
+            result.append(get_title(movie))
+    return result
     """Finds all movies made before the passed in year
 
     Args:
@@ -88,6 +112,13 @@ def title_before_year(matches: List[str]) -> List[str]:
 
 
 def title_after_year(matches: List[str]) -> List[str]:
+    result = []
+    p_year = int(matches[0])
+    for movie in movie_db:
+        if get_year(movie) >= p_year:
+            result.append(get_title(movie))
+    return result
+
     """Finds all movies made after the passed in year
 
     Args:
@@ -102,6 +133,13 @@ def title_after_year(matches: List[str]) -> List[str]:
 
 
 def director_by_title(matches: List[str]) -> List[str]:
+    result = []
+    title = matches[0]
+
+    for movie in movie_db:
+        if get_title(movie) == title:
+            result.append(get_director(movie))
+    return result
     """Finds director of movie based on title
 
     Args:
@@ -114,6 +152,13 @@ def director_by_title(matches: List[str]) -> List[str]:
 
 
 def title_by_director(matches: List[str]) -> List[str]:
+    result = []
+    director = matches[0]
+    for movie in movie_db:
+        if get_director(movie) == director:
+            result.append(get_title(movie))
+    return result
+
     """Finds movies directed by the passed in director
 
     Args:
@@ -126,6 +171,12 @@ def title_by_director(matches: List[str]) -> List[str]:
 
 
 def actors_by_title(matches: List[str]) -> List[str]:
+    result = []
+    title = matches[0]
+    for movie in movie_db:
+        if get_title(movie) == title:
+            result = (get_actors(movie))
+    return result
     """Finds actors who acted in the passed in movie title
 
     Args:
@@ -138,6 +189,13 @@ def actors_by_title(matches: List[str]) -> List[str]:
 
 
 def year_by_title(matches: List[str]) -> List[int]:
+    result = []
+    title = matches[0]
+    for movie in movie_db:
+        if get_title(movie) == title:
+            result.append(get_year(movie))
+    return result
+
     """Finds year of passed in movie title
 
     Args:
@@ -150,6 +208,12 @@ def year_by_title(matches: List[str]) -> List[int]:
 
 
 def title_by_actor(matches: List[str]) -> List[str]:
+    result = []
+    actor = matches[0]
+    for movie in movie_db:
+        if get_actors(movie) == actor:
+            result = (get_title(movie))
+    return result
     """Finds titles of all movies that the given actor was in
 
     Args:
@@ -186,6 +250,13 @@ pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
 
 
 def search_pa_list(src: List[str]) -> List[str]:
+    for pet, act in pa_list:
+        mat = match(pet, src)
+
+        if mat is not None:
+            answer = act(mat)
+            return answer if answer else ("No answer")
+        return("I dont understand")
     """Takes source, finds matching pattern and calls corresponding action. If it finds
     a match but has no answers it returns ["No answers"]. If it finds no match it
     returns ["I don't understand"].
