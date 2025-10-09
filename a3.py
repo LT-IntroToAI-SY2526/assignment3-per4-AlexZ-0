@@ -223,7 +223,13 @@ def title_by_actor(matches: List[str]) -> List[str]:
         a list of movie titles that the actor acted in
     """
     pass
-
+def actor_by_director(matches: List[str]) -> List[str]:
+    result = []
+    actors = matches[0]
+    for movie in movie_db:
+        if get_director(movie) == director
+        result.append(get_actor(movie))
+    return result
 
 # dummy argument is ignored and doesn't matter
 def bye_action(dummy: List[str]) -> None:
@@ -233,6 +239,7 @@ def bye_action(dummy: List[str]) -> None:
 # The pattern-action list for the natural language query system A list of tuples of
 # pattern and action It must be declared here, after all of the function definitions
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
+    (str.split("Whats actors actors worked under director _ "), actor_by_director),
     (str.split("what movies were made in _"), title_by_year),
     (str.split("what movies were made between _ and _"), title_by_year_range),
     (str.split("what movies were made before _"), title_before_year),
@@ -351,10 +358,4 @@ if __name__ == "__main__":
         search_pa_list(["what", "movies", "were", "made", "in", "2020"])
     ) == sorted(["No answers"]), "failed search_pa_list test 3"
 
-    print("All tests passed!")
-
-
-
-
-
-# ADD - movie, new functoin, new pa list 
+    print("All tests passed!") 
