@@ -436,11 +436,15 @@ movie_db: List[Tuple[str, str, int, List[str]]] = [
         ],
     ),
     (
-        ""
+        "Lawrence Kasdan",
+        1985,
 
         [
-            ""
-            ""
+            "Kevin Costner",
+            "Kevin Kline",
+            "Danny Glover",
+            "Scott Glenn",
+            "Mark Kasdan",
         ],
      ),
 ]
