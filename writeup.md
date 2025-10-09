@@ -15,11 +15,13 @@ This assignment completes our movie chatbot system by implementing action functi
 ## Reflection Questions
 
 1. What are some key programming concepts or techniques that you learned while completing this assignment?
-
+How to create and call a function as well as what a pa list is and how it works.
 
 
 2. How does the overall movie chatbot system work? Explain the flow from when a user types a query to when they receive an answer.
+   Prints a greeting for the user and waits for a response. Converts response to lowercase and split sit into a string before using keywords from the string to find matches in the pa list. If found the corrosponding function will loop through thr movie databaseand a answer wil be return to the user
 
 
-
-3. What are some real-world applications where this type of pattern-matching chatbot system could be useful? How might you extend or improve this system for practical use?
+4. What are some real-world applications where this type of pattern-matching chatbot system could be useful? How might you extend or improve this system for practical use?
+   Automatee rspond bots. A chatbot like that can repond to questions such as, when is the next holiday, how do i reuqest time off, how do i contact manager, etc. The current model requires user to asl very sepcific questiosn to get a response. Synynoms can be added to keywords to help make getting actual responses easier instead of a "I dont know"
+   
