@@ -11,15 +11,15 @@ You'll be graded on your **function implementations**, **search functionality**,
 Remember: This assignment completes our movie chatbot system - focus on understanding **how databases work with natural language** and **how to extend systems with new functionality**.
 ---
 ## Grading Table
-| Criteria | Points Possible | Points Earned | Comments |
+ Criteria | Points Possible | Points Earned | Comments |
 |----------|----------------|---------------|----------|
-| **Action Functions** | 9 | | |
+| **Action Functions** | 9 | 9 | |
 | **Core System Functions** | | | |
-| search_pa_list Implementation | 7 | | |
-| query_loop Function | 1 | | |
+| search_pa_list Implementation | 7 | 7 | |
+| query_loop Function | 1 | 1 | |
 | **Creative Additions** | | | |
-| Database & Pattern Extensions | 3 | | |
-| **TOTAL** | **20** | | |
+| Database & Pattern Extensions | 3 | 3 | |
+| **TOTAL** | **20** | 20 | You need to delete the pass function |
 ---
 ## Action Functions (9 points)
 **Basic Movie Queries (5 points)**
